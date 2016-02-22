@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crossword Puzzle</title>
+</head>
+<p style="font-size:24px"><b>Word Search</b></p>
+
+<body>
+<img src="CrosswordLanding1.png" alt="Crosswords are fun!" width="199" height="147"><br>
+
+<form action = "getInfo.php" method = "get">
+
+    <p><b>Please enter your puzzle details:</b></p>
+    <p>Select Language
+        <select name="language">
+            <option value="english">English
+            </option>
+        </select>
+    </p>
+
+    <p>Select Filler
+        <select name="filler">
+            <option value="anyletter">Any Letter</option>
+        </select>
+    </p>
+
+    Select Grid Height (between 4 and 20):
+    <input type="number" name="height" min="4" max="50" value="15">
+    <br>
+    Select Grid Width (between 4 and 20):
+    <input type="number" name="width" min="4" max="50" value="15">
+    <br><br>
+    Enter a name for your puzzle:
+    <input type="text" name="puzzlename">
+
+    <p>Please enter some words for your puzzle</p>
+
+    <div>
+        Puzzle Words:
+        <label>
+            <textarea name="puzzlewords" rows="10" cols="30"></textarea>
+        </label>
+        <br><br><br>
+    </div>
+
+
+    <input type="submit" value="Generate" style="height:30px; width:150px" />
+</form>
+
+</body>
+</html>
