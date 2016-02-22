@@ -13,7 +13,7 @@
 session_start();
 $_SESSION['puzzlename'] = $_GET['puzzlename'];
 
-// WORD PUZZLE MAKER
+// WORD PUZZLE MAKER !!!!!!!I MADE A CHANGE!!!!!!!!!!!!!
 // Generates a word search puzzle based on a word list
 // entered by user. User can also specify the size of
 // the puzzle and print out an answer key if desired
