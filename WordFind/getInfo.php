@@ -10,43 +10,38 @@
 </head>
 <body>
 <?php
-session_start();
-$_SESSION['puzzlename'] = $_GET['puzzlename'];
 
-// WORD PUZZLE MAKER !!!!!!!I MADE A CHANGE!!!!!!!!!!!!!
+session_start();
+
+
+// WORD PUZZLE MAKER
 // Generates a word search puzzle based on a word list
 // entered by user. User can also specify the size of
 // the puzzle and print out an answer key if desired
 global $wordList;
-$wordList=$_GET["puzzlewords"];
+$wordList = (isset($_POST["puzzleWords"]) ? $_POST["puzzleWords"] : null);
 $wordList = strtoupper($wordList);
 //get puzzle data from HTML form
 $word = explode("\n", $wordList);
-
-$rawWordList = array();
-
 foreach ($word as $currentWord){
     //take out trailing newline characters
     $currentWord = rtrim($currentWord);
-    $currentWord = strtoupper($currentWord);
-    array_push($rawWordList,$currentWord);
+    $currentWord = strtoupper($wordList);
 }
 
-
 global $currentWord;
-$currentWord = $rawWordList;
 
 //check for a word list
 if (empty($currentWord)){
     //make default puzzle
     print "Sorry, no data found";
 } else {
-    $width = $_GET["width"];
-    $height = $_GET["height"];
+    $width = (isset($_POST["width"]) ? $_POST["width"] : null);
+    $height = (isset($_POST["height"]) ? $_POST["height"] : null);
     $boardData = array(
         "width" => $width,
         "height" => $height,
-        "puzzlewords" => $currentWord,
+        "puzzleWords" => $currentWord,
 
     );
 }
@@ -65,7 +60,6 @@ if (parseList() == TRUE){
     //make the answer key
     $key = $board;
     $keyPuzzle = makeBoard($key);
-    $_SESSION['keypuzzle'] = $keyPuzzle;
 
     //make the final puzzle
     addFoils();
@@ -94,16 +88,14 @@ function parseList(){
     //foreach ($word as $currentWord){
     //take out trailing newline characters
     //$currentWord = rtrim($currentWord);
-    foreach($currentWord as $wordIndex) {
-        //stop if any words are too long to fit in puzzle
-        if ((strLen($wordIndex) > $boardData["width"]) &&
-            (strLen($wordIndex) > $boardData["height"])
-        ) {
-            print "$wordIndex is too long for puzzle";
-            print "Please increase the grid size in previous page and try again";
-            $itWorked = FALSE;
-        } // end if
-    }
+
+    //stop if any words are too long to fit in puzzle
+    if ((strLen($currentWord) > $boardData["width"]) &&
+        (strLen($currentWord) > $boardData["height"])){
+        print "$currentWord is too long for puzzle";
+        print "Please increase the grid size in previous page and try again";
+        $itWorked = FALSE;
+    } // end if
 
     //} // end foreach
     return $itWorked;
@@ -280,7 +272,7 @@ function printPuzzle(){
 
     print <<<HERE
   <center>
-  <h1>{$_SESSION['puzzlename']}</h1>
+  <h1>{$boardData["name"]}</h1>
   $puzzle
   <h3>Word List</h3>
   <table border = 0>
@@ -291,16 +283,16 @@ HERE;
         print "<tr><td>$theWord</td></tr>\n";
     } // end foreach
     print "</table>\n";
-    $puzzleName = $_SESSION['puzzlename'];
+    $puzzleName = $boardData["name"];
 
     //print form for requesting answer key.
     //send answer key to that form (sneaky!)
 
     echo "<br /><br /><br /><br /><br /><br /><br /><br />";
     echo '<form action = "wordFindKey.php" method = "post">';
-    echo '<input type = "hidden" name = "key" value = "$keyPuzzle">';
-    echo '<input type = "hidden" name = "puzzleName" value = "$puzzleName">';
-    echo '<input type = "submit" value = "Show Answer Key">';
+//    echo '<input type = "hidden" name = "key" value = "$keyPuzzle">';
+//    echo '<input type = "hidden" name = "puzzleName" value = "$puzzleName">';
+//    echo '<input type = "submit" value = "Show Answer Key">';
     echo '</form></center>';
 } // end printPuzzle
 

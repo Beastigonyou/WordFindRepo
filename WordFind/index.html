@@ -1,52 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale = 1">
     <title>Crossword Puzzle</title>
 </head>
-<p style="font-size:24px"><b>Word Search</b></p>
 
 <body>
-<img src="CrosswordLanding1.png" alt="Crosswords are fun!" width="199" height="147"><br>
 
-<form action = "getInfo.php" method = "get">
 
-    <p><b>Please enter your puzzle details:</b></p>
-    <p>Select Language
-        <select name="language">
-            <option value="english">English
-            </option>
-        </select>
-    </p>
+<form action="getInfo.php" method="POST">
+    <div class="container-fluid">
 
-    <p>Select Filler
-        <select name="filler">
-            <option value="anyletter">Any Letter</option>
-        </select>
-    </p>
+        <div class="jumbotron">
+            <div align="center"><h1>Word Search Bonanza</h1><img src="CrosswordLanding1.png" alt="Crosswords are fun!">
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-group">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div align="center"><h2>Please enter your puzzle details</h2></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
 
-    Select Grid Height (between 4 and 20):
-    <input type="number" name="height" min="4" max="50" value="15">
-    <br>
-    Select Grid Width (between 4 and 20):
-    <input type="number" name="width" min="4" max="50" value="15">
-    <br><br>
-    Enter a name for your puzzle:
-    <input type="text" name="puzzlename">
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-sm-3">
+                                    <label for="language">Select Language</label>
+                                    <select class="form-control" id="language" name="language">
+                                        <option value="english">English</option>
+                                        <option value="telegu">Telegu (Place Holder)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-3">
+                                        <label for="filler">Select Filler</label>
+                                        <select class="form-control" id="filler" name="filler">
+                                            <option value="anyletter">Consonants and Vowels</option>
+                                            <option value="consonants">Consonants</option>
+                                            <option value="vowels">Vowels</option>
+                                        </select>
+                                    </div>
+                                </div>
 
-    <p>Please enter some words for your puzzle</p>
 
-    <div>
-        Puzzle Words:
-        <label>
-            <textarea name="puzzlewords" rows="10" cols="30"></textarea>
-        </label>
-        <br><br><br>
+                                <div class="form-group">
+                                    <div class="col-sm-3">
+                                        <label for="height">Enter Height</label>
+                                        <input type="number" class="form-control" id="height" min="10" max="50" name="width"
+                                               placeholder="20">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-3">
+                                        <label for="width">Enter Width</label>
+                                        <input type="number" class="form-control" id="width" min="10" max="50" name="width"
+                                               placeholder="20">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="row">
+
+                            <div class="form-group">
+                                <div class="col-sm-6">
+                                    <label for="title">Enter Puzzle Name</label>
+                                    <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-6">
+                                    <label for="puzzleWords">Enter Word Bank</label>
+                                    <textarea class="form-control" rows="3" id="puzzleWords" name="puzzleWords"></textarea>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12"><input type="submit" class="btn btn-primary btn-lg" value="Generate"></div>
+            </div>
+        </div>
     </div>
-
-
-    <input type="submit" value="Generate" style="height:30px; width:150px" />
 </form>
-
 </body>
 </html>
