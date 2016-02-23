@@ -11,12 +11,11 @@
 <body>
 
 <?php
-session_start();
 
 //answer key for word find
 //called from wordFind.php
-$key=$_SESSION['keypuzzle'];
-$puzzleName=$_SESSION['puzzlename'];
+$key=$_GET["key"];
+$puzzleName=$_POST["puzzleName"];
 print <<<HERE
 <center>
 <h1>$puzzleName Answer Key</h1>
