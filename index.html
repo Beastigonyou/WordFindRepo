@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale = 1">
+    <title>Crossword Puzzle</title>
+</head>
+
+<body>
+
+
+<form action="getInfo.php" method="GET">
+    <div class="container-fluid">
+
+        <div class="jumbotron">
+            <div align="center"><h1>Word Search Bonanza</h1><img src="CrosswordLanding1.png" alt="Crosswords are fun!">
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-group">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div align="center"><h2>Please enter your puzzle details</h2></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-sm-3">
+                                    <label for="language">Select Language</label>
+                                    <select class="form-control" id="language" name="language">
+                                        <option value="english">English</option>
+                                        <option value="telegu">Telegu (Place Holder)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-3">
+                                        <label for="filler">Select Filler</label>
+                                        <select class="form-control" id="filler" name="filler">
+                                            <option value="anyletter">Consonants and Vowels</option>
+                                            <option value="consonants">Consonants</option>
+                                            <option value="vowels">Vowels</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="col-sm-3">
+                                        <label for="height">Enter Height</label>
+                                        <input type="number" class="form-control" id="height" min="10" max="50" name="height" value="20"
+                                               placeholder="20">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-3">
+                                        <label for="width">Enter Width</label>
+                                        <input type="number" class="form-control" id="width" min="10" max="50" name="width" value="20"
+                                               placeholder="20">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="row">
+
+                            <div class="form-group">
+                                <div class="col-sm-6">
+                                    <label for="title">Enter Puzzle Name</label>
+                                    <input type="text" class="form-control" id="title" name="puzzlename" placeholder="Title">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-6">
+                                    <label for="puzzlewords">Enter Word Bank</label>
+                                    <textarea class="form-control" rows="3" id="puzzleWords" name="puzzlewords"></textarea>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12"><input type="submit" class="btn btn-primary btn-lg" value="Generate"></div>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>
