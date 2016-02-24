@@ -21,7 +21,7 @@
 <body>
 
 
-<form action="getInfo.php" method="POST">
+<form action="getInfo.php" method="GET">
     <div class="container-fluid">
 
         <div class="jumbotron">
@@ -64,7 +64,7 @@
                                 <div class="form-group">
                                     <div class="col-sm-3">
                                         <label for="height">Enter Height</label>
-                                        <input type="number" class="form-control" id="height" min="10" max="50" name="width"
+                                        <input type="number" class="form-control" id="height" min="10" max="50" name="height" value="20"
                                                placeholder="20">
                                     </div>
                                 </div>
@@ -72,7 +72,7 @@
                                 <div class="form-group">
                                     <div class="col-sm-3">
                                         <label for="width">Enter Width</label>
-                                        <input type="number" class="form-control" id="width" min="10" max="50" name="width"
+                                        <input type="number" class="form-control" id="width" min="10" max="50" name="width" value="20"
                                                placeholder="20">
                                     </div>
                                 </div>
@@ -85,14 +85,15 @@
                             <div class="form-group">
                                 <div class="col-sm-6">
                                     <label for="title">Enter Puzzle Name</label>
-                                    <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+                                    <input type="text" class="form-control" id="title" name="puzzlename" placeholder="Title" value="">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-sm-6">
-                                    <label for="puzzleWords">Enter Word Bank</label>
-                                    <textarea class="form-control" rows="3" id="puzzleWords" name="puzzleWords"></textarea>
+                                    <label for="puzzlewords">Enter Word Bank</label>
+                                    <label for="puzzleWords"></label>
+                                    <textarea class="form-control" rows="3" id="puzzleWords" name="puzzlewords" ></textarea>
 
                                 </div>
                             </div>

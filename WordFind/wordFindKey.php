@@ -11,18 +11,20 @@
 <body>
 
 <?php
-
+session_start();
 //answer key for word find
 //called from wordFind.php
-$key=$_GET["key"];
-$puzzleName=$_POST["puzzleName"];
+$key = $_SESSION['keypuzzle'];
+$puzzleName=$_SESSION['puzzlename'];
 print <<<HERE
 <center>
 <h1>$puzzleName Answer Key</h1>
 $key
 </center>
- 
+
 HERE;
+echo "<center><a href='index.html'>Go Make a new Puzzle</a></center>";
 ?>
+
 </body>
 </html>
